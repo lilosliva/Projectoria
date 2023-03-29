@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projectoria</title>
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
+
+<div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close">
+            <span class="icofont-close js-menu-toggle"></span>
+        </div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="navbar navbar-expand-lg js-site-navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/templates/index.html">Projectoria</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false">
+            <span><img class="menu-img" th:src="@{/icons/menu.svg}" alt="menu-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="/templates/index.html#about-us-block">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Проекты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#site-footer">Контакты</a>
+                </li>
+            </ul>
+            <ul class="site-menu navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class=" nav-item signin-button"><a href="/sign/in">Войти</a></li>
+                <li class=" nav-item signup-button"><a href="/sign/up">Регистрация</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+<div class="untree_co-login-register">
+    <div class="container">
+        <div class="row justify-content-center">
+
+            <div class="col-lg-5">
+                <div class="custom-box" data-aos="fade-up" data-aos-delay="0">
+                    <h2 class="heading">Регистрация</h2>
+                    <form th:method="POST" th:action="@{/sign/up}" th:object="${user}">
+                        <div class="form-field">
+                            <label for="email">Электронная почта</label>
+                            <input type="email" th:field="*{email}" class="form-control" id="email">
+                            <div style="color: crimson" th:if="${#fields.hasErrors('email')}"
+                                 th:errors="*{email}">ошибка ввода Email</div>
+                        </div>
+                        <div class="form-field">
+                            <label for="password">Пароль</label>
+                            <input type="password" th:field="*{password}" class="form-control" id="password">
+                            <div style="color: crimson" th:if="${#fields.hasErrors('password')}"
+                                 th:errors="*{password}">ошибка ввода password</div>
+                        </div>
+                        <div class="form-field">
+                            <label for="repassword">Подтвердить пароль</label>
+                            <input type="password" class="form-control" id="repassword">
+                        </div>
+                        <div class="form-field signup-page-button">
+                            <input type="submit" class="btn btn-primary btn-block" value="Зарегистрироваться">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="site-footer" id="site-footer">
+
+    <div class="footer-dots"></div>
+    <div class="container signup-footer">
+
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="widget about">
+                    <h3>О нас<span class="text-primary"></span></h3>
+                    <p>Projectoria - медиа-платформа для размещения проектов, созданная
+                        в рамках курсовой работы.</p>
+                </div>
+            </div>
+
+            <div class="col-lg-2 ml-auto">
+                <div class="widget about">
+                    <h3>Меню</h3>
+                    <ul class="list-unstyled float-left links">
+                        <li><a href="/templates/index.html">Главная страница</a></li>
+                        <li><a href="/templates/signup.html">Регистрация</a></li>
+                        <li><a href="/templates/signin.html">Войти</a></li>
+                        <li><a href="#">Проекты</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <div class="widget about">
+                    <h3>Контакты</h3>
+                    <address>Соболева Элина Петровна</address>
+                    <ul class="list-unstyled links mb-4">
+                        <li><a href="tel://89152496517">+7-915-249-65-17</a></li>
+                        <li><a href="mailto:215797@fa.ru">215797@fa.ru</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <p class="copyright">Copyright &copy; 2023. All Rights Reserved. &mdash; Designed by Elina Soboleva
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+<script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+</html>
